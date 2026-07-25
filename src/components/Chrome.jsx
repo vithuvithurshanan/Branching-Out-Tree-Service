@@ -6,20 +6,7 @@ import { useScrollProgress, useScrolledPast } from '../hooks/useScrollEffects.js
 /* ---------- brand mark ---------- */
 
 export function TreeGlyph({ className = 'brand__glyph' }) {
-  return (
-    <svg className={className} viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <path
-        d="M20 37V21M20 21 11 14M20 21l9-7M20 21V9"
-        stroke="currentColor"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-      <circle cx="20" cy="6" r="3.4" stroke="currentColor" strokeWidth="1.2" />
-      <circle cx="8.5" cy="11.5" r="3.1" stroke="currentColor" strokeWidth="1.2" />
-      <circle cx="31.5" cy="11.5" r="3.1" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M14 37h12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-    </svg>
-  )
+  return <img className={className} src="/images/logo.webp" alt="" aria-hidden="true" />
 }
 
 function PhoneIcon() {
@@ -317,6 +304,9 @@ export function Footer() {
           </Link>
           <Link className="link-underline" to="/terms-and-conditions">
             Terms &amp; Conditions
+          </Link>
+          <Link className="link-underline" to="/photo-credits">
+            Photo Credits
           </Link>
           <a className="link-underline" href={site.phoneHref}>
             Free Estimate

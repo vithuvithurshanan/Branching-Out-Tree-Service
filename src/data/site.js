@@ -37,8 +37,7 @@ export const services = [
     excerpt:
       'Precision take-downs of hazardous, dead or overcrowding trees — rigged and lowered piece by piece so nothing below it gets touched.',
     points: ['Crane & rigging removals', 'Tight-access takedowns', 'Full debris haul-away'],
-    image:
-      'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1600&q=70',
+    image: '/images/svc-removal.jpg',
   },
   {
     id: 'trimming',
@@ -47,8 +46,7 @@ export const services = [
     excerpt:
       'Structural pruning that opens the canopy, lifts weight off weak unions and keeps limbs clear of your roof, siding and service lines.',
     points: ['Crown thinning & raising', 'Deadwood removal', 'Young tree training'],
-    image:
-      'https://images.unsplash.com/photo-1600240644455-3edc55c375fe?auto=format&fit=crop&w=1600&q=70',
+    image: '/images/svc-trimming.jpg',
   },
   {
     id: 'stump',
@@ -57,8 +55,7 @@ export const services = [
     excerpt:
       'Stumps and surface roots ground below grade, backfilled with grindings or clean topsoil so the lawn closes back over it.',
     points: ['Grinding 6–10" below grade', 'Surface root chasing', 'Seed-ready restoration'],
-    image:
-      'https://images.unsplash.com/photo-1611843467160-25afb8df1074?auto=format&fit=crop&w=1600&q=70',
+    image: '/images/svc-stump.jpg',
   },
   {
     id: 'storm',
@@ -67,8 +64,7 @@ export const services = [
     excerpt:
       'Split trunks, limbs on the roof, a tree across the driveway — we answer the phone at 3 AM and stabilize the property first.',
     points: ['Emergency limb removal', 'Roof & vehicle extraction', 'Insurance documentation'],
-    image:
-      'https://images.unsplash.com/photo-1543946602-a0fce8117068?auto=format&fit=crop&w=1600&q=70',
+    image: '/images/svc-storm.jpg',
   },
   {
     id: 'health',
@@ -77,8 +73,7 @@ export const services = [
     excerpt:
       'Diagnosis of decline, deep-root feeding, and cabling or bracing to hold split leaders together instead of losing the whole tree.',
     points: ['Disease & pest assessment', 'Cabling & bracing', 'Deep-root fertilization'],
-    image:
-      'https://images.unsplash.com/photo-1508197957336-9a2b0dcbc9f6?auto=format&fit=crop&w=1600&q=70',
+    image: '/images/svc-health.jpg',
   },
   {
     id: 'lot',
@@ -87,8 +82,7 @@ export const services = [
     excerpt:
       'Fence lines, building pads and back acreage cleared of brush, saplings and hedgerow — chipped on site and left rake-clean.',
     points: ['Brush & hedgerow clearing', 'Building pad prep', 'On-site chipping'],
-    image:
-      'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1600&q=70',
+    image: '/images/svc-lot.jpg',
   },
 ]
 
@@ -145,26 +139,22 @@ export const gallery = [
   {
     title: 'Silver Maple Removal',
     meta: 'Hilton, NY — 92 ft, over garage',
-    image:
-      'https://images.unsplash.com/photo-1445052693476-5b1ee27fdaf6?auto=format&fit=crop&w=1400&q=70',
+    image: '/images/work-1.jpg',
   },
   {
     title: 'Canopy Restoration',
     meta: 'Parma, NY — storm-torn oak',
-    image:
-      'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1400&q=70',
+    image: '/images/work-2.jpg',
   },
   {
     title: 'Fence Line Clearing',
     meta: 'Spencerport, NY — 400 ft hedgerow',
-    image:
-      'https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?auto=format&fit=crop&w=1400&q=70',
+    image: '/images/work-3.jpg',
   },
   {
     title: 'Stump Field Grinding',
     meta: 'Hamlin, NY — 14 stumps',
-    image:
-      'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1400&q=70',
+    image: '/images/work-4.jpg',
   },
 ]
 

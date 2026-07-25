@@ -1,7 +1,6 @@
 import { services, site } from '../data/site.js'
 
-const BACKDROP =
-  'https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=2200&q=70'
+const BACKDROP = '/images/services-bg.jpg'
 
 export default function Services() {
   return (

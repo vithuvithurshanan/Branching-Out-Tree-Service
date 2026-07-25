@@ -1,8 +1,7 @@
 import { processSteps, stats } from '../data/site.js'
 import { useCountUp } from '../hooks/useScrollEffects.js'
 
-const BACKDROP =
-  'https://images.unsplash.com/photo-1587920131152-4c88b1ef1d1c?auto=format&fit=crop&w=2200&q=70'
+const BACKDROP = '/images/process-bg.jpg'
 
 function Stat({ value, suffix, label }) {
   const [ref, current] = useCountUp(value)
@@ -52,7 +51,7 @@ export default function Process() {
         <div
           className="bg-layer"
           data-parallax="30"
-          style={{ backgroundImage: `url(${BACKDROP})`, opacity: 0.45 }}
+          style={{ backgroundImage: `url(${BACKDROP})`, opacity: 0.7 }}
         />
         <div className="stats" data-reveal>
           {stats.map((s) => (

@@ -1,9 +1,7 @@
 import { site, addressLine } from '../data/site.js'
 
-const HERO_IMAGE =
-  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=72'
-const HERO_MID =
-  'https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=2000&q=70'
+const HERO_IMAGE = '/images/hero-canopy.jpg'
+const HERO_MID = '/images/hero-mist.jpg'
 
 export default function Hero() {
   return (
@@ -19,7 +17,7 @@ export default function Hero() {
         data-parallax="175"
         style={{
           backgroundImage: `url(${HERO_MID})`,
-          opacity: 0.35,
+          opacity: 0.18,
           mixBlendMode: 'luminosity',
         }}
       />

@@ -4,6 +4,7 @@ import { Cursor, DotNav, Footer, Header, Loader, ToTop } from './components/Chro
 import Home from './pages/Home.jsx'
 import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
+import Credits from './pages/Credits.jsx'
 import { navLinks } from './data/site.js'
 import {
   useActiveSection,
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms-and-conditions" element={<Terms />} />
+        <Route path="/photo-credits" element={<Credits />} />
         <Route path="*" element={<Home />} />
       </Routes>
 

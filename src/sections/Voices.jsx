@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { testimonials, site } from '../data/site.js'
 
-const BACKDROP =
-  'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=2200&q=70'
-const CTA_BACKDROP =
-  'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=2200&q=70'
+const BACKDROP = '/images/voices-bg.jpg'
+const CTA_BACKDROP = '/images/cta-bg.jpg'
 
 export default function Voices() {
   const [index, setIndex] = useState(0)

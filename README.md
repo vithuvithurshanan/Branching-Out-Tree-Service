@@ -57,16 +57,41 @@ immediately, and short-circuits the CSS transitions.
 
 ## Contact form
 
-The business has no email inbox, so the form composes an SMS to 585-667-8733 with the
-customer's name, number, address and service instead of posting to a mail handler. To wire
-it to a CRM or SMS API later, replace the `submit` handler in
-[src/sections/Contact.jsx](src/sections/Contact.jsx).
+The estimate form is the **GoHighLevel inline embed** for
+`Branching Out Tree Service` (form id `i2dbH5TnnTq6NlobO3Qy`), wrapped in
+[src/components/GhlForm.jsx](src/components/GhlForm.jsx). Submissions land in the GHL
+account, not on this site — there is no local form state or mail handler.
+
+- `form_embed.js` is injected once on mount and drives the iframe's auto-height.
+- Fields, validation and the **SMS consent checkbox live in GHL** — edit them there. The
+  A2P disclosure printed under the form is in
+  [src/sections/Contact.jsx](src/sections/Contact.jsx).
+- To swap forms, change `FORM_ID` at the top of `GhlForm.jsx`.
 
 ## Images
 
-Hero and section backdrops are hot-linked Unsplash URLs so the repo stays light. Swap them
-for real job photos before launch — the service photos are in `services[].image` and the
-gallery in `gallery[].image` in `src/data/site.js`.
+All photography is served locally from [public/images/](public/images/) (~4.5 MB, 18
+files) — nothing is hot-linked, so a dead external URL can never blank out a section.
+
+| File | Used by |
+| ---- | ------- |
+| `hero-canopy.jpg`, `hero-mist.jpg` | hero parallax stack (canopy preloaded for LCP) |
+| `about-climber.jpg` | About figure |
+| `services-bg.jpg`, `process-bg.jpg`, `voices-bg.jpg`, `cta-bg.jpg`, `contact-bg.jpg` | section backdrops |
+| `svc-*.jpg` | service cards — `services[].image` in `src/data/site.js` |
+| `work-*.jpg` | gallery — `gallery[].image` in `src/data/site.js` |
+
+The About, service-card and gallery photos are **real tree-work photography** sourced from
+Openverse; the section backdrops are generic forest scenery from Unsplash. Licences and
+attribution are recorded in [CREDITS.md](CREDITS.md) and mirrored on the `/photo-credits`
+page linked from the footer — the CC BY images require that credit until they are replaced.
+
+To use real job photos, drop them in `public/images/` under the same names — no code change
+needed. Keep backdrops ≤ 1800px wide and cards ≤ 1200px; they sit behind dark scrims, so
+quality 50–60 is plenty.
+
+`.about__figure` and `.work__item` carry a moss-to-bark gradient underneath, so a missing
+file degrades to a coloured panel rather than an empty column.
 
 ## Deploying
 

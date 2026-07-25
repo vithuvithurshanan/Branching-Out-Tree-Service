@@ -19,8 +19,14 @@ export default function Work() {
 
         <div className="work">
           {gallery.map((g, i) => (
-            <figure className="work__item" key={g.title} data-reveal="mask" style={{ '--delay': `${0.08 * i}s` }}>
-              <img src={g.image} alt={g.title} data-parallax="26" />
+            <figure className="work__item" key={g.title}>
+              <img
+                src={g.image}
+                alt={`${g.title} — ${g.meta}`}
+                loading="lazy"
+                decoding="async"
+                data-parallax="26"
+              />
               <figcaption className="work__cap">
                 <h3>{g.title}</h3>
                 <span>{g.meta}</span>

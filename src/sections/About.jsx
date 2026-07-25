@@ -1,7 +1,6 @@
 import { site, addressLine } from '../data/site.js'
 
-const ABOUT_IMAGE =
-  'https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?auto=format&fit=crop&w=1400&q=72'
+const ABOUT_IMAGE = '/images/about-climber.jpg'
 
 export default function About() {
   return (
@@ -11,8 +10,14 @@ export default function About() {
       </span>
 
       <div className="wrap grid-2">
-        <div className="about__figure" data-reveal="mask">
-          <img src={ABOUT_IMAGE} alt="Arborist working high in a mature canopy" data-parallax="42" />
+        <div className="about__figure">
+          <img
+            src={ABOUT_IMAGE}
+            alt="Arborist in helmet and hearing protection cutting an overgrown evergreen with a chainsaw"
+            loading="lazy"
+            decoding="async"
+            data-parallax="42"
+          />
           <div className="about__stamp">
             <span>
               <b>18</b>
