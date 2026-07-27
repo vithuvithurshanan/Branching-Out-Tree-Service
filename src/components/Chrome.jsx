@@ -28,14 +28,17 @@ export function Loader() {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setDone(true), 60)
-    return () => clearTimeout(timer)
+    // Wait for a minimum time AND for fonts to load to prevent layout shifts
+    Promise.all([
+      document.fonts.ready,
+      new Promise((resolve) => setTimeout(resolve, 60))
+    ]).then(() => {
+      setDone(true)
+    })
   }, [])
 
-  if (done) return null
-
   return (
-    <div className="loader" role="status" aria-live="polite">
+    <div className={`loader${done ? ' loader--done' : ''}`} role="status" aria-live="polite">
       <div className="loader__inner">
         <div className="loader__mark">Branching Out</div>
         <div className="loader__track">
