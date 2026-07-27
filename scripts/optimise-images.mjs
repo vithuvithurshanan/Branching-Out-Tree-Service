@@ -24,7 +24,7 @@ const SIZE_MAP = {
   'process-bg':   { width: 1400 },
   'services-bg':  { width: 1600 },
   'cta-bg':       { width: 1400 },
-  'about-climber':{ width: 600  },
+  'about-climber':{ width: 400  },
   'svc-health':   { width: 400  },
   'svc-lot':      { width: 400  },
   'svc-removal':  { width: 400  },
