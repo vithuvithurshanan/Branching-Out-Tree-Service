@@ -6,7 +6,7 @@ import { useScrollProgress, useScrolledPast } from '../hooks/useScrollEffects.js
 /* ---------- brand mark ---------- */
 
 export function TreeGlyph({ className = 'brand__glyph' }) {
-  return <img className={className} src="/images/logo-96.webp" alt="" aria-hidden="true" />
+  return <img className={className} src="/images/logo-96.webp" alt="" aria-hidden="true" width="96" height="96" />
 }
 
 function PhoneIcon() {
