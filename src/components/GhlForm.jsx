@@ -17,11 +17,32 @@ export default function GhlForm() {
   const frame = useRef(null)
 
   useEffect(() => {
-    if (document.querySelector(`script[src="${EMBED_SCRIPT}"]`)) return
-    const script = document.createElement('script')
-    script.src = EMBED_SCRIPT
-    script.async = true
-    document.body.appendChild(script)
+    let observer = null
+
+    const init = () => {
+      if (document.querySelector(`script[src="${EMBED_SCRIPT}"]`)) return
+      const script = document.createElement('script')
+      script.src = EMBED_SCRIPT
+      script.async = true
+      document.body.appendChild(script)
+    }
+
+    if (frame.current) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            init()
+            // Set the src only when it intersects so the iframe doesn't load early
+            frame.current.src = FORM_SRC
+            observer.disconnect()
+          }
+        },
+        { rootMargin: '600px' } // Load when within 600px of viewport
+      )
+      observer.observe(frame.current)
+    }
+
+    return () => observer?.disconnect()
   }, [])
 
   return (
@@ -31,7 +52,7 @@ export default function GhlForm() {
       </div>
       <iframe
         ref={frame}
-        src={FORM_SRC}
+        // src is set dynamically by the IntersectionObserver to defer loading
         id={`inline-${FORM_ID}`}
         title="Branching Out Tree Service"
         style={{

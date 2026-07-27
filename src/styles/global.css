@@ -224,6 +224,8 @@ button {
   font-size: clamp(2rem, 6vw, 3rem);
   letter-spacing: 0.04em;
   margin-bottom: 1.4rem;
+  line-height: 1;
+  height: clamp(2rem, 6vw, 3rem);
 }
 
 .loader__track {
