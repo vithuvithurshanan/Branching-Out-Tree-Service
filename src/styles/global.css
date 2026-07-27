@@ -3,6 +3,8 @@
    Palette: bark black, bone white, moss green, brass
    ============================================================ */
 
+@import './fonts.css';
+
 :root {
   --bark: #0c100d;
   --bark-soft: #141a15;

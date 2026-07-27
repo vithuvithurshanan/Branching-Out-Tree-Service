@@ -28,13 +28,8 @@ export function Loader() {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    // Wait for a minimum time AND for fonts to load to prevent layout shifts
-    Promise.all([
-      document.fonts.ready,
-      new Promise((resolve) => setTimeout(resolve, 60))
-    ]).then(() => {
-      setDone(true)
-    })
+    const timer = setTimeout(() => setDone(true), 60)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

@@ -14,24 +14,8 @@
     <!-- Preload LCP hero image so the browser fetches it immediately -->
     <link rel="preload" as="image" href="/images/hero-canopy.webp" fetchpriority="high" type="image/webp" />
 
-    <!-- Preconnect to font origins (max 2 to avoid Lighthouse "too many preconnects") -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Non-blocking Google Fonts load — print→all prevents render-blocking -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@200;300;400;500;600&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <!-- Fallback for no-JS -->
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@200;300;400;500;600&display=swap"
-      />
-    </noscript>
+
   </head>
   <body>
     <div id="root"></div>
