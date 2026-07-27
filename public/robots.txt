@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://branching-out-tree.web.app/sitemap.xml

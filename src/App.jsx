@@ -75,13 +75,15 @@ export default function App() {
       <Header active={active} />
       {isHome && <DotNav active={active} />}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/privacy-policy" element={<Privacy />} />
-        <Route path="/terms-and-conditions" element={<Terms />} />
-        <Route path="/photo-credits" element={<Credits />} />
-        <Route path="*" element={<Home />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<Privacy />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
+          <Route path="/photo-credits" element={<Credits />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
 
       <Footer />
       <ToTop />

@@ -50,7 +50,7 @@ export function Loader() {
   }, [done])
 
   return (
-    <div className={`loader${done ? ' loader--done' : ''}`} aria-hidden={done}>
+    <div className={`loader${done ? ' loader--done' : ''}`} aria-hidden={done} role="status" aria-live="polite">
       <div className="loader__inner">
         <div className="loader__mark">Branching Out</div>
         <div className="loader__track">
@@ -174,8 +174,8 @@ export function Header({ active }) {
         </div>
       </header>
 
-      <div className={`drawer${open ? ' is-open' : ''}`}>
-        <div>
+      <div className={`drawer${open ? ' is-open' : ''}`} role="dialog" aria-label="Navigation menu">
+        <nav aria-label="Mobile navigation">
           <ul>
             {navLinks.map((l, i) => (
               <li key={l.id}>
@@ -194,7 +194,7 @@ export function Header({ active }) {
             <br />
             {addressLine}
           </div>
-        </div>
+        </nav>
       </div>
     </>
   )
@@ -255,7 +255,7 @@ export function Footer() {
     <footer className="footer">
       <div className="footer__grid">
         <div>
-          <Link to="/" className="brand" style={{ marginBottom: '1.2rem' }}>
+          <Link to="/" className="brand" aria-label={`${site.name} — home`} style={{ marginBottom: '1.2rem' }}>
             <TreeGlyph />
             <span>
               <span className="brand__name">Branching Out</span>
@@ -299,7 +299,7 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} {site.name}. All rights reserved.
         </span>
-        <nav>
+        <nav aria-label="Legal">
           <Link className="link-underline" to="/privacy-policy">
             Privacy Policy
           </Link>

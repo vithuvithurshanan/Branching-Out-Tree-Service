@@ -11,6 +11,8 @@ export default function Hero() {
         className="bg-layer"
         data-parallax="120"
         style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        role="img"
+        aria-label="Tree canopy overhead"
       />
       <div
         className="bg-layer"
