@@ -1,6 +1,6 @@
 import { services, site } from '../data/site.js'
 
-const BACKDROP = '/images/services-bg.jpg'
+const BACKDROP = '/images/services-bg.webp'
 
 export default function Services() {
   return (

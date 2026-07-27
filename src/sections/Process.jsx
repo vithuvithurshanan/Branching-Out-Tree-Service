@@ -1,7 +1,7 @@
 import { processSteps, stats } from '../data/site.js'
 import { useCountUp } from '../hooks/useScrollEffects.js'
 
-const BACKDROP = '/images/process-bg.jpg'
+const BACKDROP = '/images/process-bg.webp'
 
 function Stat({ value, suffix, label }) {
   const [ref, current] = useCountUp(value)

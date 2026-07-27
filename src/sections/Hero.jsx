@@ -1,7 +1,7 @@
 import { site, addressLine } from '../data/site.js'
 
-const HERO_IMAGE = '/images/hero-canopy.jpg'
-const HERO_MID = '/images/hero-mist.jpg'
+const HERO_IMAGE = '/images/hero-canopy.webp'
+const HERO_MID = '/images/hero-mist.webp'
 
 export default function Hero() {
   return (

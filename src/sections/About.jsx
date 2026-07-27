@@ -1,6 +1,6 @@
 import { site, addressLine } from '../data/site.js'
 
-const ABOUT_IMAGE = '/images/about-climber.jpg'
+const ABOUT_IMAGE = '/images/about-climber.webp'
 
 export default function About() {
   return (

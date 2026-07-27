@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { site } from '../data/site.js'
 import GhlForm from '../components/GhlForm.jsx'
 
-const BACKDROP = '/images/contact-bg.jpg'
+const BACKDROP = '/images/contact-bg.webp'
 
 export default function Contact() {
   return (

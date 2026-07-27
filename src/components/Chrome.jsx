@@ -6,7 +6,7 @@ import { useScrollProgress, useScrolledPast } from '../hooks/useScrollEffects.js
 /* ---------- brand mark ---------- */
 
 export function TreeGlyph({ className = 'brand__glyph' }) {
-  return <img className={className} src="/images/logo.webp" alt="" aria-hidden="true" />
+  return <img className={className} src="/images/logo-96.webp" alt="" aria-hidden="true" />
 }
 
 function PhoneIcon() {
@@ -30,14 +30,15 @@ export function Loader() {
 
   useEffect(() => {
     let value = 0
+    // Fast interval so loader exits in ~500ms — keeps LCP element as the hero image
     const id = setInterval(() => {
-      value = Math.min(100, value + Math.ceil((100 - value) / 5) + 3)
+      value = Math.min(100, value + Math.ceil((100 - value) / 4) + 6)
       setPct(value)
       if (value >= 100) {
         clearInterval(id)
-        setTimeout(() => setDone(true), 320)
+        setTimeout(() => setDone(true), 120)
       }
-    }, 90)
+    }, 35)
     return () => clearInterval(id)
   }, [])
 

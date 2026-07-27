@@ -8,15 +8,32 @@
       name="description"
       content="Branching Out Tree Service provides tree removal, trimming, stump grinding and 24/7 storm damage response in Hilton, NY and the greater Rochester area. Call 585-667-8733 for a free estimate."
     />
-    <link rel="icon" type="image/webp" href="/images/logo.webp" />
+    <link rel="icon" type="image/webp" href="/images/logo-96.webp" />
     <meta name="theme-color" content="#f3f0e7" />
-    <link rel="preload" as="image" href="/images/hero-canopy.jpg" fetchpriority="high" />
+    <!-- Preload LCP hero image so the browser fetches it immediately -->
+    <link rel="preload" as="image" href="/images/hero-canopy.webp" fetchpriority="high" type="image/webp" />
+
+    <!-- Preconnect to font origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preconnect to GoHighLevel form (saves ~320ms per Lighthouse audit) -->
+    <link rel="preconnect" href="https://link.kdlead.com" crossorigin />
+
+    <!-- Non-blocking Google Fonts load — print→all prevents render-blocking -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@200;300;400;500;600&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@200;300;400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@200;300;400;500;600&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
