@@ -12,10 +12,10 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const IMG_DIR = path.resolve(__dirname, '../public/images')
 
-const QUALITY = 60   // WebP quality — lower to 60 for better Lighthouse scores
+const QUALITY = 50   // WebP quality — lower to 50 for maximum compression
 
 // Images that are used as full-bleed backgrounds can be wider
-// Service card thumbs only need ~600px wide
+// Service card thumbs only need ~400px wide
 const SIZE_MAP = {
   'hero-canopy':  { width: 1920 },
   'hero-mist':    { width: 1920 },
@@ -24,17 +24,17 @@ const SIZE_MAP = {
   'process-bg':   { width: 1400 },
   'services-bg':  { width: 1600 },
   'cta-bg':       { width: 1400 },
-  'about-climber':{ width: 800  },
-  'svc-health':   { width: 600  },
-  'svc-lot':      { width: 600  },
-  'svc-removal':  { width: 600  },
-  'svc-storm':    { width: 600  },
-  'svc-stump':    { width: 600  },
-  'svc-trimming': { width: 600  },
-  'work-1':       { width: 800  },
-  'work-2':       { width: 800  },
-  'work-3':       { width: 800  },
-  'work-4':       { width: 800  },
+  'about-climber':{ width: 600  },
+  'svc-health':   { width: 400  },
+  'svc-lot':      { width: 400  },
+  'svc-removal':  { width: 400  },
+  'svc-storm':    { width: 400  },
+  'svc-stump':    { width: 400  },
+  'svc-trimming': { width: 400  },
+  'work-1':       { width: 600  },
+  'work-2':       { width: 600  },
+  'work-3':       { width: 600  },
+  'work-4':       { width: 600  },
 }
 
 async function run() {
