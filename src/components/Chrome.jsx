@@ -54,7 +54,7 @@ export function Loader() {
       <div className="loader__inner">
         <div className="loader__mark">Branching Out</div>
         <div className="loader__track">
-          <div className="loader__fill" style={{ width: `${pct}%` }} />
+          <div className="loader__fill" style={{ transform: `scaleX(${pct / 100})` }} />
         </div>
         <div className="loader__pct">{String(pct).padStart(3, '0')}</div>
       </div>
@@ -269,7 +269,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4>Contact</h4>
+          <h3>Contact</h3>
           <ul>
             <li>
               <a className="link-underline" href={site.phoneHref}>
@@ -284,7 +284,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4>Hours</h4>
+          <h3>Hours</h3>
           <ul>
             {site.hours.map(([day, time]) => (
               <li key={day}>

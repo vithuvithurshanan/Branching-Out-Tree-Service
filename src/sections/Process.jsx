@@ -19,7 +19,7 @@ function Stat({ value, suffix, label }) {
 export default function Process() {
   return (
     <section className="section section--panel" id="process">
-      <span className="section__watermark display" data-parallax="90">
+      <span className="section__watermark display" data-parallax="90" aria-hidden="true">
         02
       </span>
 

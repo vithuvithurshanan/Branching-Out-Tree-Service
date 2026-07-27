@@ -206,12 +206,13 @@ button {
   background: var(--bone);
   display: grid;
   place-items: center;
-  transition: opacity 0.8s var(--ease), visibility 0.8s;
+  transition: opacity 0.8s var(--ease);
+  pointer-events: auto;
 }
 
 .loader--done {
   opacity: 0;
-  visibility: hidden;
+  pointer-events: none;
 }
 
 .loader__inner {
@@ -237,9 +238,10 @@ button {
 
 .loader__fill {
   position: absolute;
-  inset: 0 auto 0 0;
+  inset: 0;
   background: var(--moss);
-  transition: width 0.2s linear;
+  transform-origin: left;
+  transition: transform 0.2s linear;
 }
 
 .loader__pct {
@@ -1624,11 +1626,11 @@ button {
   gap: clamp(2rem, 5vw, 4rem);
 }
 
-.footer h4 {
-  font-size: 0.64rem;
+.footer h3 {
+  font-size: 0.68rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: #6b521b;
   margin-bottom: 1.3rem;
   font-weight: 600;
 }
