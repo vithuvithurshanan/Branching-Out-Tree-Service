@@ -6,6 +6,7 @@ import Privacy from './pages/Privacy.jsx'
 import Terms from './pages/Terms.jsx'
 import Credits from './pages/Credits.jsx'
 import { navLinks } from './data/site.js'
+import { track } from './lib/firebase.js'
 import {
   useActiveSection,
   useParallaxEngine,
@@ -13,6 +14,31 @@ import {
 } from './hooks/useScrollEffects.js'
 
 const SECTION_IDS = navLinks.map((l) => l.id)
+
+/** GA4: page_view per route + phone-tap conversions from anywhere on the page. */
+function AnalyticsManager() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    track('page_view', { page_path: pathname, page_location: window.location.href })
+  }, [pathname])
+
+  useEffect(() => {
+    const onClick = (e) => {
+      const tel = e.target.closest('a[href^="tel:"]')
+      if (tel) {
+        track('phone_call_click', {
+          link_text: tel.textContent.trim().slice(0, 60),
+          page_path: window.location.pathname,
+        })
+      }
+    }
+    document.addEventListener('click', onClick)
+    return () => document.removeEventListener('click', onClick)
+  }, [])
+
+  return null
+}
 
 /** Land at the top on route change, unless the URL carries a #hash. */
 function ScrollManager() {
@@ -44,6 +70,7 @@ export default function App() {
     <>
       <Loader />
       <Cursor />
+      <AnalyticsManager />
       <ScrollManager />
       <Header active={active} />
       {isHome && <DotNav active={active} />}
