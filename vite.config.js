@@ -22,8 +22,15 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // Keep Firebase out of the main bundle so it doesn't block parse
           if (id.includes('node_modules/firebase')) return 'firebase'
+          if (
+            id.includes('node_modules/react') ||
+            id.includes('node_modules/react-dom') ||
+            id.includes('node_modules/react-router-dom') ||
+            id.includes('node_modules/scheduler')
+          ) {
+            return 'vendor-react'
+          }
         },
       },
     },

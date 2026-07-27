@@ -621,6 +621,10 @@ button {
   will-change: transform;
 }
 
+.section__watermark::before {
+  content: attr(data-watermark);
+}
+
 /* parallax photographic backdrops */
 
 .bg-layer {

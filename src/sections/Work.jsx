@@ -3,9 +3,7 @@ import { gallery, reasons, site } from '../data/site.js'
 export default function Work() {
   return (
     <section className="section" id="work">
-      <span className="section__watermark display" data-parallax="80" aria-hidden="true">
-        03
-      </span>
+      <span className="section__watermark display" data-parallax="80" data-watermark="03" aria-hidden="true" />
 
       <div className="wrap">
         <div className="section-head">

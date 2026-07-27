@@ -5,9 +5,7 @@ const ABOUT_IMAGE = '/images/about-climber.webp'
 export default function About() {
   return (
     <section className="section section--light on-light" id="about">
-      <span className="section__watermark display" data-parallax="70" aria-hidden="true">
-        01
-      </span>
+      <span className="section__watermark display" data-parallax="70" data-watermark="01" aria-hidden="true" />
 
       <div className="wrap grid-2">
         <div className="about__figure">

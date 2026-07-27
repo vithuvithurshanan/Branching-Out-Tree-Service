@@ -1,0 +1,16 @@
+# Branching Out Tree Service
+
+> Licensed and fully insured tree care service in Hilton, NY and the greater Rochester area. Services include tree removal, canopy trimming, stump grinding, and 24/7 emergency storm damage response.
+
+## Key Information & Links
+- [Website Home Page](https://branching-out-tree.web.app/)
+- [Tree Services Overview](https://branching-out-tree.web.app/#services)
+- [About Our Company](https://branching-out-tree.web.app/#about)
+- [Customer Reviews & Testimonials](https://branching-out-tree.web.app/#voices)
+- [Contact & Free Estimate Form](https://branching-out-tree.web.app/#contact)
+- [Privacy Policy](https://branching-out-tree.web.app/privacy-policy)
+- [Terms and Conditions](https://branching-out-tree.web.app/terms-and-conditions)
+
+## Contact Information
+- Phone: (585) 667-8733
+- Location: Hilton, NY 14468
