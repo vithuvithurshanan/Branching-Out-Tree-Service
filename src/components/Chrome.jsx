@@ -25,38 +25,22 @@ function PhoneIcon() {
 /* ---------- preloader ---------- */
 
 export function Loader() {
-  const [pct, setPct] = useState(0)
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    let value = 0
-    // Fast interval so loader exits in ~500ms — keeps LCP element as the hero image
-    const id = setInterval(() => {
-      value = Math.min(100, value + Math.ceil((100 - value) / 4) + 6)
-      setPct(value)
-      if (value >= 100) {
-        clearInterval(id)
-        setTimeout(() => setDone(true), 120)
-      }
-    }, 35)
-    return () => clearInterval(id)
+    const timer = setTimeout(() => setDone(true), 60)
+    return () => clearTimeout(timer)
   }, [])
 
-  useEffect(() => {
-    document.body.style.overflow = done ? '' : 'hidden'
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [done])
+  if (done) return null
 
   return (
-    <div className={`loader${done ? ' loader--done' : ''}`} aria-hidden={done} role="status" aria-live="polite">
+    <div className="loader" role="status" aria-live="polite">
       <div className="loader__inner">
         <div className="loader__mark">Branching Out</div>
         <div className="loader__track">
-          <div className="loader__fill" style={{ transform: `scaleX(${pct / 100})` }} />
+          <div className="loader__fill" style={{ transform: 'scaleX(1)' }} />
         </div>
-        <div className="loader__pct">{String(pct).padStart(3, '0')}</div>
       </div>
     </div>
   )
