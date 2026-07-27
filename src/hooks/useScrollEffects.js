@@ -29,10 +29,16 @@ export function useParallaxEngine() {
       frame = 0
       const viewportH = window.innerHeight
       const mid = viewportH / 2
-      for (const { el, speed } of nodes) {
+      
+      // Phase 1: Batch all geometry reads
+      const updates = nodes.map(({ el, speed }) => {
         const rect = el.parentElement.getBoundingClientRect()
         const raw = (rect.top + rect.height / 2 - mid) / viewportH
-        const progress = Math.max(-1, Math.min(1, raw))
+        return { el, speed, progress: Math.max(-1, Math.min(1, raw)) }
+      })
+
+      // Phase 2: Batch all style writes
+      for (const { el, speed, progress } of updates) {
         el.style.transform = `translate3d(0, ${(progress * speed).toFixed(2)}px, 0)`
       }
     }
