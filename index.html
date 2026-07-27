@@ -13,12 +13,9 @@
     <!-- Preload LCP hero image so the browser fetches it immediately -->
     <link rel="preload" as="image" href="/images/hero-canopy.webp" fetchpriority="high" type="image/webp" />
 
-    <!-- Preconnect to font origins -->
+    <!-- Preconnect to font origins (max 2 to avoid Lighthouse "too many preconnects") -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Preconnect to GoHighLevel form (saves ~320ms per Lighthouse audit) -->
-    <link rel="preconnect" href="https://link.kdlead.com" crossorigin />
 
     <!-- Non-blocking Google Fonts load — print→all prevents render-blocking -->
     <link

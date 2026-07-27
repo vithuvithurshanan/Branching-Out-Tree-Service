@@ -28,10 +28,10 @@ export function useParallaxEngine() {
     const render = () => {
       frame = 0
       const viewportH = window.innerHeight
+      const mid = viewportH / 2
       for (const { el, speed } of nodes) {
         const rect = el.parentElement.getBoundingClientRect()
-        // +1 while below the viewport, 0 centred, -1 once above it.
-        const raw = (rect.top + rect.height / 2 - viewportH / 2) / viewportH
+        const raw = (rect.top + rect.height / 2 - mid) / viewportH
         const progress = Math.max(-1, Math.min(1, raw))
         el.style.transform = `translate3d(0, ${(progress * speed).toFixed(2)}px, 0)`
       }
@@ -47,10 +47,15 @@ export function useParallaxEngine() {
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
 
-    // Sections mount/unmount between routes, so re-collect on DOM changes.
+    // Debounce MutationObserver so frequent React re-renders don't cause
+    // repeated forced reflows — only re-collect once DOM mutations settle.
+    let mutationTimer = 0
     const observer = new MutationObserver(() => {
-      collect()
-      onScroll()
+      clearTimeout(mutationTimer)
+      mutationTimer = setTimeout(() => {
+        collect()
+        onScroll()
+      }, 200)
     })
     observer.observe(document.body, { childList: true, subtree: true })
 
@@ -58,10 +63,12 @@ export function useParallaxEngine() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
       observer.disconnect()
+      clearTimeout(mutationTimer)
       if (frame) cancelAnimationFrame(frame)
     }
   }, [])
 }
+
 
 /** Adds .is-visible to every [data-reveal] element once it enters the viewport. */
 export function useRevealEngine() {
