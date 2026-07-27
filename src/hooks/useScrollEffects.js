@@ -114,44 +114,71 @@ export function useRevealEngine() {
   }, [])
 }
 
-/** Scroll progress 0 → 1 for the top progress bar. */
+/** Scroll progress 0 → 1 for the top progress bar.
+ * Uses a ResizeObserver to cache the max scroll height so the
+ * scroll handler never triggers a forced reflow via scrollHeight.
+ */
 export function useScrollProgress() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    let maxScroll = document.documentElement.scrollHeight - window.innerHeight
+
     const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(max > 0 ? window.scrollY / max : 0)
+      setProgress(maxScroll > 0 ? window.scrollY / maxScroll : 0)
     }
+
+    // Keep max scroll updated without reading it on every scroll event
+    const ro = new ResizeObserver(() => {
+      maxScroll = document.documentElement.scrollHeight - window.innerHeight
+      onScroll()
+    })
+    ro.observe(document.documentElement)
+
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
     return () => {
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      ro.disconnect()
     }
   }, [])
 
   return progress
 }
 
-/** Which section id currently owns the middle of the viewport. */
+/** Which section id currently owns the middle of the viewport.
+ * Uses IntersectionObserver instead of getBoundingClientRect on scroll
+ * to avoid forced reflows.
+ */
 export function useActiveSection(ids) {
   const [active, setActive] = useState(ids[0])
 
   useEffect(() => {
-    const onScroll = () => {
-      const middle = window.innerHeight / 2
-      let current = ids[0]
-      for (const id of ids) {
-        const el = document.getElementById(id)
-        if (el && el.getBoundingClientRect().top <= middle) current = id
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the topmost intersecting section
+        let topmost = null
+        let topmostTop = Infinity
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.boundingClientRect.top < topmostTop) {
+            topmostTop = entry.boundingClientRect.top
+            topmost = entry.target.id
+          }
+        })
+        if (topmost) setActive(topmost)
+      },
+      {
+        threshold: 0,
+        rootMargin: '-45% 0px -45% 0px',
       }
-      setActive(current)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    )
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [ids])
 
   return active
